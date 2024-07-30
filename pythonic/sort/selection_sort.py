@@ -20,7 +20,7 @@ Selection sort is not suitable for large datasets due to its O(n2) time complexi
 given_list = [64, 25, 12, 22, 11, 90, 34, 78, 56, 43]
 
 
-def selection_sort(given) -> list:
+def des_selection_sort(given) -> list:
     n = len(given)
     k = 0 #swapped list
     for _ in range(n):
@@ -29,6 +29,20 @@ def selection_sort(given) -> list:
         k +=1
     return given
 
-selection_sort(given=given_list)
+def asc_selection_sort(given) -> list:
+    #take an array, move the minimum value to the sorted section
+    i = 0
+    for _ in range(len(given)):
+        min_val = min(given[i:])
+        min_index = given[i:].index(min_val)
+        given[i], given[min_index+i] = given[min_index+i], given[i]
+        i+=1
+    return given
+
+print(given_list)
+print(des_selection_sort(given=given_list[:]))
+print(asc_selection_sort(given=given_list[:]))
+
+
 
     
