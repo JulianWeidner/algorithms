@@ -20,18 +20,15 @@ Selection sort is not suitable for large datasets due to its O(n2) time complexi
 given_list = [64, 25, 12, 22, 11, 90, 34, 78, 56, 43]
 
 
-def selection_sort(given_list) -> list:
+def selection_sort(given) -> list:
+    n = len(given)
+    k = 0 #swapped list
+    for _ in range(n):
+        max_num_index = given[k:].index(max(given[k:])) #the maximum value index within the k-(len) array
+        given[k], given[max_num_index+k] = given[max_num_index+k], given[k] # with k being the boundary, it 
+        k +=1
+    return given
 
-    i = len(given_list)
-
-    for _ in range(len(given_list)):
-        lowest_index_val = given_list[:i].index(min(given_list[:i]))
-        removed = given_list.pop(lowest_index_val)
-        print(given_list[:i])
-        given_list.append(removed)
-        print(given_list)
-        i-=1
-
-selection_sort(given_list=given_list)
+selection_sort(given=given_list)
 
     
